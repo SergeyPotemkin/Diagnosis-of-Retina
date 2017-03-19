@@ -1,0 +1,35 @@
+c:\users\роман\documents\visual studio 2013\Projects\DiagnosisOfRetinal\DiagnosisOfRetinal\bin\Debug\DiagnosisOfRetinal.exe.config
+c:\users\роман\documents\visual studio 2013\Projects\DiagnosisOfRetinal\DiagnosisOfRetinal\bin\Debug\DiagnosisOfRetinal.exe
+c:\users\роман\documents\visual studio 2013\Projects\DiagnosisOfRetinal\DiagnosisOfRetinal\bin\Debug\DiagnosisOfRetinal.pdb
+c:\users\роман\documents\visual studio 2013\Projects\DiagnosisOfRetinal\DiagnosisOfRetinal\bin\Debug\EntityFramework.dll
+c:\users\роман\documents\visual studio 2013\Projects\DiagnosisOfRetinal\DiagnosisOfRetinal\bin\Debug\EntityFramework.SqlServer.dll
+c:\users\роман\documents\visual studio 2013\Projects\DiagnosisOfRetinal\DiagnosisOfRetinal\bin\Debug\EntityFramework.xml
+c:\users\роман\documents\visual studio 2013\Projects\DiagnosisOfRetinal\DiagnosisOfRetinal\bin\Debug\EntityFramework.SqlServer.xml
+c:\users\роман\documents\visual studio 2013\Projects\DiagnosisOfRetinal\DiagnosisOfRetinal\obj\Debug\DiagnosisOfRetinal.csprojResolveAssemblyReference.cache
+c:\users\роман\documents\visual studio 2013\Projects\DiagnosisOfRetinal\DiagnosisOfRetinal\obj\Debug\DiagnosisOfRetinal.Properties.Resources.resources
+c:\users\роман\documents\visual studio 2013\Projects\DiagnosisOfRetinal\DiagnosisOfRetinal\obj\Debug\DiagnosisOfRetinal.csproj.GenerateResource.Cache
+c:\users\роман\documents\visual studio 2013\Projects\DiagnosisOfRetinal\DiagnosisOfRetinal\obj\Debug\DiagnosisOfRetinal.exe
+c:\users\роман\documents\visual studio 2013\Projects\DiagnosisOfRetinal\DiagnosisOfRetinal\obj\Debug\DiagnosisOfRetinal.pdb
+c:\users\роман\documents\visual studio 2013\Projects\DiagnosisOfRetinal\DiagnosisOfRetinal\obj\Debug\DiagnosisOfRetinal.Form_add_doctor.resources
+c:\users\роман\documents\visual studio 2013\Projects\DiagnosisOfRetinal\DiagnosisOfRetinal\obj\Debug\DiagnosisOfRetinal.Form_serch_doctor.resources
+c:\users\роман\documents\visual studio 2013\Projects\DiagnosisOfRetinal\DiagnosisOfRetinal\bin\Debug\Skin.dll
+C:\Users\Graph\Desktop\DiagnosisOfRetinal\DiagnosisOfRetinal\bin\Debug\DiagnosisOfRetinal.exe.config
+C:\Users\Graph\Desktop\DiagnosisOfRetinal\DiagnosisOfRetinal\obj\Debug\DiagnosisOfRetinal.exe
+C:\Users\Graph\Desktop\DiagnosisOfRetinal\DiagnosisOfRetinal\obj\Debug\DiagnosisOfRetinal.pdb
+C:\Users\Graph\Desktop\DiagnosisOfRetinal\DiagnosisOfRetinal\bin\Debug\DiagnosisOfRetinal.exe
+C:\Users\Graph\Desktop\DiagnosisOfRetinal\DiagnosisOfRetinal\bin\Debug\DiagnosisOfRetinal.pdb
+C:\Users\Graph\Desktop\DiagnosisOfRetinal\DiagnosisOfRetinal\bin\Debug\EntityFramework.dll
+C:\Users\Graph\Desktop\DiagnosisOfRetinal\DiagnosisOfRetinal\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Graph\Desktop\DiagnosisOfRetinal\DiagnosisOfRetinal\bin\Debug\Skin.dll
+C:\Users\Graph\Desktop\DiagnosisOfRetinal\DiagnosisOfRetinal\bin\Debug\EntityFramework.xml
+C:\Users\Graph\Desktop\DiagnosisOfRetinal\DiagnosisOfRetinal\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Graph\Desktop\DiagnosisOfRetinal\DiagnosisOfRetinal\obj\Debug\DiagnosisOfRetinal.csprojResolveAssemblyReference.cache
+C:\Users\Graph\Desktop\DiagnosisOfRetinal\DiagnosisOfRetinal\obj\Debug\DiagnosisOfRetinal.Properties.Resources.resources
+C:\Users\Graph\Desktop\DiagnosisOfRetinal\DiagnosisOfRetinal\obj\Debug\DiagnosisOfRetinal.csproj.GenerateResource.Cache
+C:\Users\Graph\Desktop\DiagnosisOfRetinal\DiagnosisOfRetinal\obj\Debug\DiagnosisOfRetinal.launch_form.resources
+C:\Users\Graph\Desktop\DiagnosisOfRetinal\DiagnosisOfRetinal\obj\Debug\DiagnosisOfRetinal.Form_main.resources
+C:\Users\Graph\Desktop\DiagnosisOfRetinal\DiagnosisOfRetinal\obj\Debug\DiagnosisOfRetinal.Form_add_doctor.resources
+C:\Users\Graph\Desktop\DiagnosisOfRetinal\DiagnosisOfRetinal\obj\Debug\DiagnosisOfRetinal.Form_new_patient.resources
+C:\Users\Graph\Desktop\DiagnosisOfRetinal\DiagnosisOfRetinal\obj\Debug\DiagnosisOfRetinal.Form_old_patient.resources
+C:\Users\Graph\Desktop\DiagnosisOfRetinal\DiagnosisOfRetinal\obj\Debug\DiagnosisOfRetinal.csproj.ResolveComReference.cache
+C:\Users\Graph\Desktop\DiagnosisOfRetinal\DiagnosisOfRetinal\bin\Debug\openVideo.dll

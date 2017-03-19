@@ -1,0 +1,172 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище DOR_dbModelContainer" CdmEntityContainer="DOR_dbEntities">
+    <EntitySetMapping Name="Area_of_folds">
+      <EntityTypeMapping TypeName="DOR_dbModel.Area_of_folds">
+        <MappingFragment StoreEntitySet="Area_of_folds">
+          <ScalarProperty Name="ID_survey" ColumnName="ID_survey" />
+          <ScalarProperty Name="Num_snapshot" ColumnName="Num_snapshot" />
+          <ScalarProperty Name="Num" ColumnName="Num" />
+          <ScalarProperty Name="Area" ColumnName="Area" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Corner_variability">
+      <EntityTypeMapping TypeName="DOR_dbModel.Corner_variability">
+        <MappingFragment StoreEntitySet="Corner_variability">
+          <ScalarProperty Name="ID_survey" ColumnName="ID_survey" />
+          <ScalarProperty Name="Num_snapshot" ColumnName="Num_snapshot" />
+          <ScalarProperty Name="Sum_variability" ColumnName="Sum_variability" />
+          <ScalarProperty Name="Median_variability" ColumnName="Median_variability" />
+          <ScalarProperty Name="Max_variability" ColumnName="Max_variability" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Correlations">
+      <EntityTypeMapping TypeName="DOR_dbModel.Correlation">
+        <MappingFragment StoreEntitySet="Correlation">
+          <ScalarProperty Name="ID_survey" ColumnName="ID_survey" />
+          <ScalarProperty Name="Num_first_snapshot" ColumnName="Num_first_snapshot" />
+          <ScalarProperty Name="Num_second_snapshot" ColumnName="Num_second_snapshot" />
+          <ScalarProperty Name="Сoefficient" ColumnName="Сoefficient" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Critical_points">
+      <EntityTypeMapping TypeName="DOR_dbModel.Critical_points">
+        <MappingFragment StoreEntitySet="Critical_points">
+          <ScalarProperty Name="ID_survey" ColumnName="ID_survey" />
+          <ScalarProperty Name="Num_first_snapshot" ColumnName="Num_first_snapshot" />
+          <ScalarProperty Name="Num_second_snapshot" ColumnName="Num_second_snapshot" />
+          <ScalarProperty Name="Count" ColumnName="Count" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Doctors">
+      <EntityTypeMapping TypeName="DOR_dbModel.Doctor">
+        <MappingFragment StoreEntitySet="Doctor">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Surname" ColumnName="Surname" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Middlename" ColumnName="Middlename" />
+          <ScalarProperty Name="Position" ColumnName="Position" />
+          <ScalarProperty Name="Rank" ColumnName="Rank" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EachHoles">
+      <EntityTypeMapping TypeName="DOR_dbModel.EachHole">
+        <MappingFragment StoreEntitySet="EachHole">
+          <ScalarProperty Name="ID_hole" ColumnName="ID_hole" />
+          <ScalarProperty Name="ID_holes" ColumnName="ID_holes" />
+          <ScalarProperty Name="Hole_size" ColumnName="Hole_size" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Foldings">
+      <EntityTypeMapping TypeName="DOR_dbModel.Folding">
+        <MappingFragment StoreEntitySet="Folding">
+          <ScalarProperty Name="ID_survey" ColumnName="ID_survey" />
+          <ScalarProperty Name="Num_snapshot" ColumnName="Num_snapshot" />
+          <ScalarProperty Name="Max_amplitude" ColumnName="Max_amplitude" />
+          <ScalarProperty Name="Min_amplitude" ColumnName="Min_amplitude" />
+          <ScalarProperty Name="Mean_amplitude" ColumnName="Mean_amplitude" />
+          <ScalarProperty Name="N" ColumnName="N" />
+          <ScalarProperty Name="Angles" ColumnName="Angles" />
+          <ScalarProperty Name="Area_of_membrane" ColumnName="Area_of_membrane" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Fourier_params">
+      <EntityTypeMapping TypeName="DOR_dbModel.Fourier_params">
+        <MappingFragment StoreEntitySet="Fourier_params">
+          <ScalarProperty Name="ID_survey" ColumnName="ID_survey" />
+          <ScalarProperty Name="Num_snapshot" ColumnName="Num_snapshot" />
+          <ScalarProperty Name="High_freq_amount" ColumnName="High_freq_amount" />
+          <ScalarProperty Name="Middle_freq_amount" ColumnName="Middle_freq_amount" />
+          <ScalarProperty Name="Low_freq_amount" ColumnName="Low_freq_amount" />
+          <ScalarProperty Name="High_freq_amp" ColumnName="High_freq_amp" />
+          <ScalarProperty Name="Middle_freq_amp" ColumnName="Middle_freq_amp" />
+          <ScalarProperty Name="Low_freq_amp" ColumnName="Low_freq_amp" />
+          <ScalarProperty Name="High_freq_mean" ColumnName="High_freq_mean" />
+          <ScalarProperty Name="Middle_freq_mean" ColumnName="Middle_freq_mean" />
+          <ScalarProperty Name="Low_freq_mean" ColumnName="Low_freq_mean" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Foveas">
+      <EntityTypeMapping TypeName="DOR_dbModel.Fovea">
+        <MappingFragment StoreEntitySet="Fovea">
+          <ScalarProperty Name="ID_survey" ColumnName="ID_survey" />
+          <ScalarProperty Name="Num_snapshot" ColumnName="Num_snapshot" />
+          <ScalarProperty Name="Length" ColumnName="Length" />
+          <ScalarProperty Name="Depth_top" ColumnName="Depth_top" />
+          <ScalarProperty Name="Depth_bot" ColumnName="Depth_bot" />
+          <ScalarProperty Name="Coef_symmetry" ColumnName="Coef_symmetry" />
+          <ScalarProperty Name="Coef_normality" ColumnName="Coef_normality" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Holes">
+      <EntityTypeMapping TypeName="DOR_dbModel.Hole">
+        <MappingFragment StoreEntitySet="Holes">
+          <ScalarProperty Name="ID_holes" ColumnName="ID_holes" />
+          <ScalarProperty Name="ID_survey" ColumnName="ID_survey" />
+          <ScalarProperty Name="Num_snapshot" ColumnName="Num_snapshot" />
+          <ScalarProperty Name="Holes_amount" ColumnName="Holes_amount" />
+          <ScalarProperty Name="Min_hole_size" ColumnName="Min_hole_size" />
+          <ScalarProperty Name="Max_hole_size" ColumnName="Max_hole_size" />
+          <ScalarProperty Name="Mean_hole_size" ColumnName="Mean_hole_size" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Patients">
+      <EntityTypeMapping TypeName="DOR_dbModel.Patient">
+        <MappingFragment StoreEntitySet="Patient">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Card_number" ColumnName="Card_number" />
+          <ScalarProperty Name="Surname" ColumnName="Surname" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Middlename" ColumnName="Middlename" />
+          <ScalarProperty Name="Adres" ColumnName="Adres" />
+          <ScalarProperty Name="Date_of_Birth" ColumnName="Date_of_Birth" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Snapshots">
+      <EntityTypeMapping TypeName="DOR_dbModel.Snapshot">
+        <MappingFragment StoreEntitySet="Snapshot">
+          <ScalarProperty Name="ID_survey" ColumnName="ID_survey" />
+          <ScalarProperty Name="Num_snapshot" ColumnName="Num_snapshot" />
+          <ScalarProperty Name="Link" ColumnName="Link" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Surveys">
+      <EntityTypeMapping TypeName="DOR_dbModel.Survey">
+        <MappingFragment StoreEntitySet="Survey">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ID_patient" ColumnName="ID_patient" />
+          <ScalarProperty Name="ID_doctor" ColumnName="ID_doctor" />
+          <ScalarProperty Name="Date_survey" ColumnName="Date_survey" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="Global_correlation" ColumnName="Global_correlation" />
+          <ScalarProperty Name="Global_critical_points" ColumnName="Global_critical_points" />
+          <ScalarProperty Name="Global_max_amplitude" ColumnName="Global_max_amplitude" />
+          <ScalarProperty Name="Global_min_amplitude" ColumnName="Global_min_amplitude" />
+          <ScalarProperty Name="Global_mean_amplitude" ColumnName="Global_mean_amplitude" />
+          <ScalarProperty Name="Global_n" ColumnName="Global_n" />
+          <ScalarProperty Name="Global_angles" ColumnName="Global_angles" />
+          <ScalarProperty Name="Global_fovea_length" ColumnName="Global_fovea_length" />
+          <ScalarProperty Name="Global_fovea_depth_top" ColumnName="Global_fovea_depth_top" />
+          <ScalarProperty Name="Global_fovea_depth_bot" ColumnName="Global_fovea_depth_bot" />
+          <ScalarProperty Name="Global_fovea_coef_symmetry" ColumnName="Global_fovea_coef_symmetry" />
+          <ScalarProperty Name="Global_fovea_coef_normality" ColumnName="Global_fovea_coef_normality" />
+          <ScalarProperty Name="Global_sum_variability" ColumnName="Global_sum_variability" />
+          <ScalarProperty Name="Global_median_variability" ColumnName="Global_median_variability" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

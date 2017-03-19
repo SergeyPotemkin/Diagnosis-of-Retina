@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище Diagnosis_of_retinalModelContainer" CdmEntityContainer="Diagnosis_of_retinalEntities">
+    <EntitySetMapping Name="Doctors">
+      <EntityTypeMapping TypeName="Diagnosis_of_retinalModel.Doctor">
+        <MappingFragment StoreEntitySet="Doctor">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Surname" ColumnName="Surname" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Middlename" ColumnName="Middlename" />
+          <ScalarProperty Name="Position" ColumnName="Position" />
+          <ScalarProperty Name="Rank" ColumnName="Rank" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Patients">
+      <EntityTypeMapping TypeName="Diagnosis_of_retinalModel.Patient">
+        <MappingFragment StoreEntitySet="Patient">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Card_number" ColumnName="Card_number" />
+          <ScalarProperty Name="Surname" ColumnName="Surname" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Middlename" ColumnName="Middlename" />
+          <ScalarProperty Name="Adres" ColumnName="Adres" />
+          <ScalarProperty Name="Date_of_Birth" ColumnName="Date_of_Birth" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Snapshots">
+      <EntityTypeMapping TypeName="Diagnosis_of_retinalModel.Snapshot">
+        <MappingFragment StoreEntitySet="Snapshot">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Num_snapshot" ColumnName="Num_snapshot" />
+          <ScalarProperty Name="ID_survey" ColumnName="ID_survey" />
+          <ScalarProperty Name="Link" ColumnName="Link" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Surveys">
+      <EntityTypeMapping TypeName="Diagnosis_of_retinalModel.Survey">
+        <MappingFragment StoreEntitySet="Survey">
+          <ScalarProperty Name="Clobal_count_critical_points" ColumnName="Clobal_count_critical_points" />
+          <ScalarProperty Name="Global_coef_сorrelation" ColumnName="Global_coef_сorrelation" />
+          <ScalarProperty Name="Global_coef_of_folding" ColumnName="Global_coef_of_folding" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ID_patient" ColumnName="ID_patient" />
+          <ScalarProperty Name="ID_doctor" ColumnName="ID_doctor" />
+          <ScalarProperty Name="Date_survey" ColumnName="Date_survey" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="Width_of_cf" ColumnName="Width_of_cf" />
+          <ScalarProperty Name="Depth_of_cf" ColumnName="Depth_of_cf" />
+          <ScalarProperty Name="Coef_symmetry" ColumnName="Coef_symmetry" />
+          <ScalarProperty Name="Coef_normality" ColumnName="Coef_normality" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Correlations">
+      <EntityTypeMapping TypeName="Diagnosis_of_retinalModel.Correlation">
+        <MappingFragment StoreEntitySet="Correlation">
+          <ScalarProperty Name="Сoefficient" ColumnName="Сoefficient" />
+          <ScalarProperty Name="Num_second_snapshot" ColumnName="Num_second_snapshot" />
+          <ScalarProperty Name="Num_first_snapshot" ColumnName="Num_first_snapshot" />
+          <ScalarProperty Name="ID_survey" ColumnName="ID_survey" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Critical_points">
+      <EntityTypeMapping TypeName="Diagnosis_of_retinalModel.Critical_points">
+        <MappingFragment StoreEntitySet="Critical_points">
+          <ScalarProperty Name="Count" ColumnName="Count" />
+          <ScalarProperty Name="Num_second_snapshot" ColumnName="Num_second_snapshot" />
+          <ScalarProperty Name="Num_first_snapshot" ColumnName="Num_first_snapshot" />
+          <ScalarProperty Name="ID_survey" ColumnName="ID_survey" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Foldings">
+      <EntityTypeMapping TypeName="Diagnosis_of_retinalModel.Folding">
+        <MappingFragment StoreEntitySet="Folding">
+          <ScalarProperty Name="Coefficient" ColumnName="Coefficient" />
+          <ScalarProperty Name="Num_snapshot" ColumnName="Num_snapshot" />
+          <ScalarProperty Name="ID_survey" ColumnName="ID_survey" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="Diagnosis_of_retinalModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="definition" ColumnName="definition" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

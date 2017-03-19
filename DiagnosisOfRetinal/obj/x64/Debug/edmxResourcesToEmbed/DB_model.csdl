@@ -1,0 +1,399 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DOR_dbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Area_of_folds">
+    <Key>
+      <PropertyRef Name="ID_survey" />
+      <PropertyRef Name="Num_snapshot" />
+      <PropertyRef Name="Num" />
+    </Key>
+    <Property Name="ID_survey" Type="Int64" Nullable="false" />
+    <Property Name="Num_snapshot" Type="Int32" Nullable="false" />
+    <Property Name="Num" Type="Int32" Nullable="false" />
+    <Property Name="Area" Type="Double" Nullable="false" />
+    <NavigationProperty Name="Survey" Relationship="Self.FK_Area_of_folds_0_0" FromRole="Area_of_folds" ToRole="Survey" />
+  </EntityType>
+  <EntityType Name="Corner_variability">
+    <Key>
+      <PropertyRef Name="ID_survey" />
+      <PropertyRef Name="Num_snapshot" />
+    </Key>
+    <Property Name="ID_survey" Type="Int64" Nullable="false" />
+    <Property Name="Num_snapshot" Type="Int32" Nullable="false" />
+    <Property Name="Sum_variability" Type="Double" Nullable="false" />
+    <Property Name="Median_variability" Type="Double" Nullable="false" />
+    <Property Name="Max_variability" Type="Double" Nullable="false" />
+    <NavigationProperty Name="Survey" Relationship="Self.FK_Corner_variability_0_0" FromRole="Corner_variability" ToRole="Survey" />
+  </EntityType>
+  <EntityType Name="Correlation">
+    <Key>
+      <PropertyRef Name="ID_survey" />
+      <PropertyRef Name="Num_first_snapshot" />
+      <PropertyRef Name="Num_second_snapshot" />
+    </Key>
+    <Property Name="ID_survey" Type="Int64" Nullable="false" />
+    <Property Name="Num_first_snapshot" Type="Int32" Nullable="false" />
+    <Property Name="Num_second_snapshot" Type="Int32" Nullable="false" />
+    <Property Name="Сoefficient" Type="Double" Nullable="false" />
+    <NavigationProperty Name="Survey" Relationship="Self.FK_Correlation_0_0" FromRole="Correlation" ToRole="Survey" />
+  </EntityType>
+  <EntityType Name="Critical_points">
+    <Key>
+      <PropertyRef Name="ID_survey" />
+      <PropertyRef Name="Num_first_snapshot" />
+      <PropertyRef Name="Num_second_snapshot" />
+    </Key>
+    <Property Name="ID_survey" Type="Int64" Nullable="false" />
+    <Property Name="Num_first_snapshot" Type="Int32" Nullable="false" />
+    <Property Name="Num_second_snapshot" Type="Int32" Nullable="false" />
+    <Property Name="Count" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Survey" Relationship="Self.FK_Critical_points_0_0" FromRole="Critical_points" ToRole="Survey" />
+  </EntityType>
+  <EntityType Name="Doctor">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Middlename" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Position" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Rank" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Surveys" Relationship="Self.FK_Survey_0_0" FromRole="Doctor" ToRole="Survey" />
+  </EntityType>
+  <EntityType Name="EachHole">
+    <Key>
+      <PropertyRef Name="ID_hole" />
+    </Key>
+    <Property Name="ID_hole" Type="Int64" Nullable="false" />
+    <Property Name="ID_holes" Type="Int64" Nullable="false" />
+    <Property Name="Hole_size" Type="Double" Nullable="false" />
+    <NavigationProperty Name="Hole" Relationship="Self.FK_EachHole_0_0" FromRole="EachHole" ToRole="Holes" />
+  </EntityType>
+  <EntityType Name="Folding">
+    <Key>
+      <PropertyRef Name="ID_survey" />
+      <PropertyRef Name="Num_snapshot" />
+    </Key>
+    <Property Name="ID_survey" Type="Int64" Nullable="false" />
+    <Property Name="Num_snapshot" Type="Int32" Nullable="false" />
+    <Property Name="Max_amplitude" Type="Double" Nullable="false" />
+    <Property Name="Min_amplitude" Type="Double" Nullable="false" />
+    <Property Name="Mean_amplitude" Type="Double" Nullable="false" />
+    <Property Name="N" Type="Int32" Nullable="false" />
+    <Property Name="Angles" Type="Double" Nullable="false" />
+    <Property Name="Area_of_membrane" Type="Double" />
+    <NavigationProperty Name="Survey" Relationship="Self.FK_Folding_0_0" FromRole="Folding" ToRole="Survey" />
+  </EntityType>
+  <EntityType Name="Fourier_params">
+    <Key>
+      <PropertyRef Name="ID_survey" />
+      <PropertyRef Name="Num_snapshot" />
+    </Key>
+    <Property Name="ID_survey" Type="Int64" Nullable="false" />
+    <Property Name="Num_snapshot" Type="Int32" Nullable="false" />
+    <Property Name="High_freq_amount" Type="Int32" Nullable="false" />
+    <Property Name="Middle_freq_amount" Type="Int32" Nullable="false" />
+    <Property Name="Low_freq_amount" Type="Int32" Nullable="false" />
+    <Property Name="High_freq_amp" Type="Double" Nullable="false" />
+    <Property Name="Middle_freq_amp" Type="Double" Nullable="false" />
+    <Property Name="Low_freq_amp" Type="Double" Nullable="false" />
+    <Property Name="High_freq_mean" Type="Double" Nullable="false" />
+    <Property Name="Middle_freq_mean" Type="Double" Nullable="false" />
+    <Property Name="Low_freq_mean" Type="Double" Nullable="false" />
+    <NavigationProperty Name="Survey" Relationship="Self.FK_Fourier_params_0_0" FromRole="Fourier_params" ToRole="Survey" />
+  </EntityType>
+  <EntityType Name="Fovea">
+    <Key>
+      <PropertyRef Name="ID_survey" />
+      <PropertyRef Name="Num_snapshot" />
+    </Key>
+    <Property Name="ID_survey" Type="Int64" Nullable="false" />
+    <Property Name="Num_snapshot" Type="Int32" Nullable="false" />
+    <Property Name="Length" Type="Double" Nullable="false" />
+    <Property Name="Depth_top" Type="Double" Nullable="false" />
+    <Property Name="Depth_bot" Type="Double" Nullable="false" />
+    <Property Name="Coef_symmetry" Type="Double" Nullable="false" />
+    <Property Name="Coef_normality" Type="Double" Nullable="false" />
+    <NavigationProperty Name="Survey" Relationship="Self.FK_Fovea_0_0" FromRole="Fovea" ToRole="Survey" />
+  </EntityType>
+  <EntityType Name="Hole">
+    <Key>
+      <PropertyRef Name="ID_holes" />
+    </Key>
+    <Property Name="ID_holes" Type="Int64" Nullable="false" />
+    <Property Name="ID_survey" Type="Int64" Nullable="false" />
+    <Property Name="Num_snapshot" Type="Int32" Nullable="false" />
+    <Property Name="Holes_amount" Type="Int32" Nullable="false" />
+    <Property Name="Min_hole_size" Type="Double" Nullable="false" />
+    <Property Name="Max_hole_size" Type="Double" Nullable="false" />
+    <Property Name="Mean_hole_size" Type="Double" Nullable="false" />
+    <NavigationProperty Name="EachHoles" Relationship="Self.FK_EachHole_0_0" FromRole="Holes" ToRole="EachHole" />
+    <NavigationProperty Name="Survey" Relationship="Self.FK_Holes_0_0" FromRole="Holes" ToRole="Survey" />
+  </EntityType>
+  <EntityType Name="Patient">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Card_number" Type="Int64" Nullable="false" />
+    <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Middlename" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Adres" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Date_of_Birth" Type="DateTime" />
+    <Property Name="Phone" Type="Decimal" Precision="18" Scale="0" />
+    <NavigationProperty Name="Surveys" Relationship="Self.FK_Survey_1_0" FromRole="Patient" ToRole="Survey" />
+  </EntityType>
+  <EntityType Name="Snapshot">
+    <Key>
+      <PropertyRef Name="ID_survey" />
+      <PropertyRef Name="Num_snapshot" />
+    </Key>
+    <Property Name="ID_survey" Type="Int64" Nullable="false" />
+    <Property Name="Num_snapshot" Type="Int32" Nullable="false" />
+    <Property Name="Link" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Survey" Relationship="Self.FK_Snapshot_0_0" FromRole="Snapshot" ToRole="Survey" />
+  </EntityType>
+  <EntityType Name="Survey">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_patient" Type="Int64" Nullable="false" />
+    <Property Name="ID_doctor" Type="Int64" Nullable="false" />
+    <Property Name="Date_survey" Type="DateTime" Nullable="false" />
+    <Property Name="Location" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Global_correlation" Type="Double" />
+    <Property Name="Global_critical_points" Type="Int32" />
+    <Property Name="Global_max_amplitude" Type="Double" />
+    <Property Name="Global_min_amplitude" Type="Double" />
+    <Property Name="Global_mean_amplitude" Type="Double" />
+    <Property Name="Global_n" Type="Int32" />
+    <Property Name="Global_angles" Type="Double" />
+    <Property Name="Global_fovea_length" Type="Double" />
+    <Property Name="Global_fovea_depth_top" Type="Double" />
+    <Property Name="Global_fovea_depth_bot" Type="Double" />
+    <Property Name="Global_fovea_coef_symmetry" Type="Double" />
+    <Property Name="Global_fovea_coef_normality" Type="Double" />
+    <Property Name="Global_sum_variability" Type="Double" />
+    <Property Name="Global_median_variability" Type="Double" />
+    <NavigationProperty Name="Area_of_folds" Relationship="Self.FK_Area_of_folds_0_0" FromRole="Survey" ToRole="Area_of_folds" />
+    <NavigationProperty Name="Corner_variability" Relationship="Self.FK_Corner_variability_0_0" FromRole="Survey" ToRole="Corner_variability" />
+    <NavigationProperty Name="Correlations" Relationship="Self.FK_Correlation_0_0" FromRole="Survey" ToRole="Correlation" />
+    <NavigationProperty Name="Critical_points" Relationship="Self.FK_Critical_points_0_0" FromRole="Survey" ToRole="Critical_points" />
+    <NavigationProperty Name="Doctor" Relationship="Self.FK_Survey_0_0" FromRole="Survey" ToRole="Doctor" />
+    <NavigationProperty Name="Foldings" Relationship="Self.FK_Folding_0_0" FromRole="Survey" ToRole="Folding" />
+    <NavigationProperty Name="Fourier_params" Relationship="Self.FK_Fourier_params_0_0" FromRole="Survey" ToRole="Fourier_params" />
+    <NavigationProperty Name="Foveas" Relationship="Self.FK_Fovea_0_0" FromRole="Survey" ToRole="Fovea" />
+    <NavigationProperty Name="Holes" Relationship="Self.FK_Holes_0_0" FromRole="Survey" ToRole="Holes" />
+    <NavigationProperty Name="Patient" Relationship="Self.FK_Survey_1_0" FromRole="Survey" ToRole="Patient" />
+    <NavigationProperty Name="Snapshots" Relationship="Self.FK_Snapshot_0_0" FromRole="Survey" ToRole="Snapshot" />
+  </EntityType>
+  <Association Name="FK_Area_of_folds_0_0">
+    <End Role="Survey" Type="Self.Survey" Multiplicity="1" />
+    <End Role="Area_of_folds" Type="Self.Area_of_folds" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Survey">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Area_of_folds">
+        <PropertyRef Name="ID_survey" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Corner_variability_0_0">
+    <End Role="Survey" Type="Self.Survey" Multiplicity="1" />
+    <End Role="Corner_variability" Type="Self.Corner_variability" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Survey">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Corner_variability">
+        <PropertyRef Name="ID_survey" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Correlation_0_0">
+    <End Role="Survey" Type="Self.Survey" Multiplicity="1" />
+    <End Role="Correlation" Type="Self.Correlation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Survey">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Correlation">
+        <PropertyRef Name="ID_survey" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Critical_points_0_0">
+    <End Role="Survey" Type="Self.Survey" Multiplicity="1" />
+    <End Role="Critical_points" Type="Self.Critical_points" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Survey">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Critical_points">
+        <PropertyRef Name="ID_survey" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Survey_0_0">
+    <End Role="Doctor" Type="Self.Doctor" Multiplicity="1" />
+    <End Role="Survey" Type="Self.Survey" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Doctor">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Survey">
+        <PropertyRef Name="ID_doctor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EachHole_0_0">
+    <End Role="Holes" Type="Self.Hole" Multiplicity="1" />
+    <End Role="EachHole" Type="Self.EachHole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Holes">
+        <PropertyRef Name="ID_holes" />
+      </Principal>
+      <Dependent Role="EachHole">
+        <PropertyRef Name="ID_holes" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Folding_0_0">
+    <End Role="Survey" Type="Self.Survey" Multiplicity="1" />
+    <End Role="Folding" Type="Self.Folding" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Survey">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Folding">
+        <PropertyRef Name="ID_survey" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Fourier_params_0_0">
+    <End Role="Survey" Type="Self.Survey" Multiplicity="1" />
+    <End Role="Fourier_params" Type="Self.Fourier_params" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Survey">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Fourier_params">
+        <PropertyRef Name="ID_survey" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Fovea_0_0">
+    <End Role="Survey" Type="Self.Survey" Multiplicity="1" />
+    <End Role="Fovea" Type="Self.Fovea" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Survey">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Fovea">
+        <PropertyRef Name="ID_survey" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Holes_0_0">
+    <End Role="Survey" Type="Self.Survey" Multiplicity="1" />
+    <End Role="Holes" Type="Self.Hole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Survey">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Holes">
+        <PropertyRef Name="ID_survey" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Survey_1_0">
+    <End Role="Patient" Type="Self.Patient" Multiplicity="1" />
+    <End Role="Survey" Type="Self.Survey" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Patient">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Survey">
+        <PropertyRef Name="ID_patient" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Snapshot_0_0">
+    <End Role="Survey" Type="Self.Survey" Multiplicity="1" />
+    <End Role="Snapshot" Type="Self.Snapshot" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Survey">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Snapshot">
+        <PropertyRef Name="ID_survey" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DOR_dbEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Area_of_folds" EntityType="Self.Area_of_folds" />
+    <EntitySet Name="Corner_variability" EntityType="Self.Corner_variability" />
+    <EntitySet Name="Correlations" EntityType="Self.Correlation" />
+    <EntitySet Name="Critical_points" EntityType="Self.Critical_points" />
+    <EntitySet Name="Doctors" EntityType="Self.Doctor" />
+    <EntitySet Name="EachHoles" EntityType="Self.EachHole" />
+    <EntitySet Name="Foldings" EntityType="Self.Folding" />
+    <EntitySet Name="Fourier_params" EntityType="Self.Fourier_params" />
+    <EntitySet Name="Foveas" EntityType="Self.Fovea" />
+    <EntitySet Name="Holes" EntityType="Self.Hole" />
+    <EntitySet Name="Patients" EntityType="Self.Patient" />
+    <EntitySet Name="Snapshots" EntityType="Self.Snapshot" />
+    <EntitySet Name="Surveys" EntityType="Self.Survey" />
+    <AssociationSet Name="FK_Area_of_folds_0_0" Association="Self.FK_Area_of_folds_0_0">
+      <End Role="Survey" EntitySet="Surveys" />
+      <End Role="Area_of_folds" EntitySet="Area_of_folds" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Corner_variability_0_0" Association="Self.FK_Corner_variability_0_0">
+      <End Role="Survey" EntitySet="Surveys" />
+      <End Role="Corner_variability" EntitySet="Corner_variability" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Correlation_0_0" Association="Self.FK_Correlation_0_0">
+      <End Role="Survey" EntitySet="Surveys" />
+      <End Role="Correlation" EntitySet="Correlations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Critical_points_0_0" Association="Self.FK_Critical_points_0_0">
+      <End Role="Survey" EntitySet="Surveys" />
+      <End Role="Critical_points" EntitySet="Critical_points" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Survey_0_0" Association="Self.FK_Survey_0_0">
+      <End Role="Doctor" EntitySet="Doctors" />
+      <End Role="Survey" EntitySet="Surveys" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EachHole_0_0" Association="Self.FK_EachHole_0_0">
+      <End Role="Holes" EntitySet="Holes" />
+      <End Role="EachHole" EntitySet="EachHoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Folding_0_0" Association="Self.FK_Folding_0_0">
+      <End Role="Survey" EntitySet="Surveys" />
+      <End Role="Folding" EntitySet="Foldings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Fourier_params_0_0" Association="Self.FK_Fourier_params_0_0">
+      <End Role="Survey" EntitySet="Surveys" />
+      <End Role="Fourier_params" EntitySet="Fourier_params" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Fovea_0_0" Association="Self.FK_Fovea_0_0">
+      <End Role="Survey" EntitySet="Surveys" />
+      <End Role="Fovea" EntitySet="Foveas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Holes_0_0" Association="Self.FK_Holes_0_0">
+      <End Role="Survey" EntitySet="Surveys" />
+      <End Role="Holes" EntitySet="Holes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Survey_1_0" Association="Self.FK_Survey_1_0">
+      <End Role="Patient" EntitySet="Patients" />
+      <End Role="Survey" EntitySet="Surveys" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Snapshot_0_0" Association="Self.FK_Snapshot_0_0">
+      <End Role="Survey" EntitySet="Surveys" />
+      <End Role="Snapshot" EntitySet="Snapshots" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

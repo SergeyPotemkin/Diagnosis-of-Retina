@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="8d9be471ed2949f2af4d56449268530c" Name="Diagram1">
+        <EntityTypeShape EntityType="DOR_dbModel.Area_of_folds" Width="1.5" PointX="5.25" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DOR_dbModel.Corner_variability" Width="1.5" PointX="5.25" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DOR_dbModel.Correlation" Width="1.5" PointX="5.25" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DOR_dbModel.Critical_points" Width="1.5" PointX="5.25" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DOR_dbModel.Doctor" Width="1.5" PointX="0.75" PointY="14.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DOR_dbModel.EachHole" Width="1.5" PointX="7.5" PointY="24.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DOR_dbModel.Folding" Width="1.5" PointX="5.25" PointY="13.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DOR_dbModel.Fourier_params" Width="1.5" PointX="5.25" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DOR_dbModel.Fovea" Width="1.5" PointX="5.25" PointY="20.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DOR_dbModel.Hole" Width="1.5" PointX="5.25" PointY="24.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DOR_dbModel.Patient" Width="1.5" PointX="0.75" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DOR_dbModel.Snapshot" Width="1.5" PointX="5.25" PointY="27.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DOR_dbModel.Survey" Width="1.5" PointX="3" PointY="12.375" IsExpanded="true" />
+        <AssociationConnector Association="DOR_dbModel.FK_Area_of_folds_0_0" ManuallyRouted="false" />
+        <AssociationConnector Association="DOR_dbModel.FK_Corner_variability_0_0" ManuallyRouted="false" />
+        <AssociationConnector Association="DOR_dbModel.FK_Correlation_0_0" ManuallyRouted="false" />
+        <AssociationConnector Association="DOR_dbModel.FK_Critical_points_0_0" ManuallyRouted="false" />
+        <AssociationConnector Association="DOR_dbModel.FK_Survey_0_0" ManuallyRouted="false" />
+        <AssociationConnector Association="DOR_dbModel.FK_EachHole_0_0" ManuallyRouted="false" />
+        <AssociationConnector Association="DOR_dbModel.FK_Folding_0_0" ManuallyRouted="false" />
+        <AssociationConnector Association="DOR_dbModel.FK_Fourier_params_0_0" ManuallyRouted="false" />
+        <AssociationConnector Association="DOR_dbModel.FK_Fovea_0_0" ManuallyRouted="false" />
+        <AssociationConnector Association="DOR_dbModel.FK_Holes_0_0" ManuallyRouted="false" />
+        <AssociationConnector Association="DOR_dbModel.FK_Survey_1_0" ManuallyRouted="false" />
+        <AssociationConnector Association="DOR_dbModel.FK_Snapshot_0_0" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

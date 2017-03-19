@@ -1,0 +1,200 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище Diagnosis_of_retinalModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Correlation">
+    <Key>
+      <PropertyRef Name="ID_survey" />
+      <PropertyRef Name="Num_first_snapshot" />
+      <PropertyRef Name="Num_second_snapshot" />
+    </Key>
+    <Property Name="ID_survey" Type="int" Nullable="false" />
+    <Property Name="Num_first_snapshot" Type="int" Nullable="false" />
+    <Property Name="Num_second_snapshot" Type="int" Nullable="false" />
+    <Property Name="Сoefficient" Type="float" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Critical_points">
+    <Key>
+      <PropertyRef Name="ID_survey" />
+      <PropertyRef Name="Num_first_snapshot" />
+      <PropertyRef Name="Num_second_snapshot" />
+    </Key>
+    <Property Name="ID_survey" Type="int" Nullable="false" />
+    <Property Name="Num_first_snapshot" Type="int" Nullable="false" />
+    <Property Name="Num_second_snapshot" Type="int" Nullable="false" />
+    <Property Name="Count" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Doctor">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Surname" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Middlename" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Position" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Rank" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Folding">
+    <Key>
+      <PropertyRef Name="ID_survey" />
+      <PropertyRef Name="Num_snapshot" />
+    </Key>
+    <Property Name="ID_survey" Type="int" Nullable="false" />
+    <Property Name="Num_snapshot" Type="int" Nullable="false" />
+    <Property Name="Coefficient" Type="float" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Patient">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Card_number" Type="int" Nullable="false" />
+    <Property Name="Surname" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Middlename" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Adres" Type="nvarchar(max)" />
+    <Property Name="Date_of_Birth" Type="date" />
+    <Property Name="Phone" Type="numeric" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="Snapshot">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Num_snapshot" Type="int" Nullable="false" />
+    <Property Name="ID_survey" Type="int" Nullable="false" />
+    <Property Name="Link" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Survey">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_patient" Type="int" Nullable="false" />
+    <Property Name="ID_doctor" Type="int" Nullable="false" />
+    <Property Name="Date_survey" Type="date" Nullable="false" />
+    <Property Name="Location" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="Width_of_cf" Type="float" Nullable="false" />
+    <Property Name="Depth_of_cf" Type="float" Nullable="false" />
+    <Property Name="Global_coef_of_folding" Type="float" Nullable="false" />
+    <Property Name="Global_coef_сorrelation" Type="float" Nullable="false" />
+    <Property Name="Coef_symmetry" Type="float" Nullable="false" />
+    <Property Name="Coef_normality" Type="float" Nullable="false" />
+    <Property Name="Clobal_count_critical_points" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <Association Name="FK_Correlation_Survey">
+    <End Role="Survey" Type="Self.Survey" Multiplicity="1" />
+    <End Role="Correlation" Type="Self.Correlation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Survey">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Correlation">
+        <PropertyRef Name="ID_survey" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Critical_points_Survey">
+    <End Role="Survey" Type="Self.Survey" Multiplicity="1" />
+    <End Role="Critical_points" Type="Self.Critical_points" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Survey">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Critical_points">
+        <PropertyRef Name="ID_survey" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Folding_Survey">
+    <End Role="Survey" Type="Self.Survey" Multiplicity="1" />
+    <End Role="Folding" Type="Self.Folding" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Survey">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Folding">
+        <PropertyRef Name="ID_survey" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Обследование_Пациент">
+    <End Role="Patient" Type="Self.Patient" Multiplicity="1" />
+    <End Role="Survey" Type="Self.Survey" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Patient">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Survey">
+        <PropertyRef Name="ID_patient" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Обследование_Пользователь">
+    <End Role="Doctor" Type="Self.Doctor" Multiplicity="1" />
+    <End Role="Survey" Type="Self.Survey" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Doctor">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Survey">
+        <PropertyRef Name="ID_doctor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Снимки_Обследование">
+    <End Role="Survey" Type="Self.Survey" Multiplicity="1" />
+    <End Role="Snapshot" Type="Self.Snapshot" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Survey">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Snapshot">
+        <PropertyRef Name="ID_survey" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Хранилище Diagnosis_of_retinalModelContainer">
+    <EntitySet Name="Correlation" EntityType="Self.Correlation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Critical_points" EntityType="Self.Critical_points" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Doctor" EntityType="Self.Doctor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Folding" EntityType="Self.Folding" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Patient" EntityType="Self.Patient" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Snapshot" EntityType="Self.Snapshot" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Survey" EntityType="Self.Survey" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Correlation_Survey" Association="Self.FK_Correlation_Survey">
+      <End Role="Survey" EntitySet="Survey" />
+      <End Role="Correlation" EntitySet="Correlation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Critical_points_Survey" Association="Self.FK_Critical_points_Survey">
+      <End Role="Survey" EntitySet="Survey" />
+      <End Role="Critical_points" EntitySet="Critical_points" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Folding_Survey" Association="Self.FK_Folding_Survey">
+      <End Role="Survey" EntitySet="Survey" />
+      <End Role="Folding" EntitySet="Folding" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Обследование_Пациент" Association="Self.FK_Обследование_Пациент">
+      <End Role="Patient" EntitySet="Patient" />
+      <End Role="Survey" EntitySet="Survey" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Обследование_Пользователь" Association="Self.FK_Обследование_Пользователь">
+      <End Role="Doctor" EntitySet="Doctor" />
+      <End Role="Survey" EntitySet="Survey" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Снимки_Обследование" Association="Self.FK_Снимки_Обследование">
+      <End Role="Survey" EntitySet="Survey" />
+      <End Role="Snapshot" EntitySet="Snapshot" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

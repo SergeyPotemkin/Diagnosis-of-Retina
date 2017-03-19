@@ -1,0 +1,212 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Diagnosis_of_retinalModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Doctor">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Middlename" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Position" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Rank" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Surveys" Relationship="Self.FK_Обследование_Пользователь" FromRole="Doctor" ToRole="Survey" />
+  </EntityType>
+  <EntityType Name="Patient">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Card_number" Type="Int32" Nullable="false" />
+    <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Middlename" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Adres" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Date_of_Birth" Type="DateTime" Precision="0" />
+    <Property Name="Phone" Type="Decimal" Precision="18" Scale="0" />
+    <NavigationProperty Name="Surveys" Relationship="Self.FK_Обследование_Пациент" FromRole="Patient" ToRole="Survey" />
+  </EntityType>
+  <EntityType Name="Snapshot">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Num_snapshot" Type="Int32" Nullable="false" />
+    <Property Name="ID_survey" Type="Int32" Nullable="false" />
+    <Property Name="Link" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Survey" Relationship="Self.FK_Снимки_Обследование" FromRole="Snapshot" ToRole="Survey" />
+  </EntityType>
+  <EntityType Name="Survey">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_patient" Type="Int32" Nullable="false" />
+    <Property Name="ID_doctor" Type="Int32" Nullable="false" />
+    <Property Name="Date_survey" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Location" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Width_of_cf" Type="Double" Nullable="false" />
+    <Property Name="Depth_of_cf" Type="Double" Nullable="false" />
+    <Property Name="Coef_symmetry" Type="Double" Nullable="false" />
+    <Property Name="Coef_normality" Type="Double" Nullable="false" />
+    <NavigationProperty Name="Doctor" Relationship="Self.FK_Обследование_Пользователь" FromRole="Survey" ToRole="Doctor" />
+    <NavigationProperty Name="Patient" Relationship="Self.FK_Обследование_Пациент" FromRole="Survey" ToRole="Patient" />
+    <NavigationProperty Name="Snapshots" Relationship="Self.FK_Снимки_Обследование" FromRole="Survey" ToRole="Snapshot" />
+    <Property Name="Global_coef_of_folding" Type="Double" Nullable="false" />
+    <Property Name="Global_coef_сorrelation" Type="Double" Nullable="false" />
+    <Property Name="Clobal_count_critical_points" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Correlations" Relationship="Diagnosis_of_retinalModel.FK_Correlation_Survey" FromRole="Survey" ToRole="Correlation" />
+    <NavigationProperty Name="Critical_points" Relationship="Diagnosis_of_retinalModel.FK_Critical_points_Survey" FromRole="Survey" ToRole="Critical_points" />
+    <NavigationProperty Name="Foldings" Relationship="Diagnosis_of_retinalModel.FK_Folding_Survey" FromRole="Survey" ToRole="Folding" />
+  </EntityType>
+  <Association Name="FK_Обследование_Пользователь">
+    <End Role="Doctor" Type="Self.Doctor" Multiplicity="1" />
+    <End Role="Survey" Type="Self.Survey" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Doctor">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Survey">
+        <PropertyRef Name="ID_doctor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Обследование_Пациент">
+    <End Role="Patient" Type="Self.Patient" Multiplicity="1" />
+    <End Role="Survey" Type="Self.Survey" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Patient">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Survey">
+        <PropertyRef Name="ID_patient" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Снимки_Обследование">
+    <End Role="Survey" Type="Self.Survey" Multiplicity="1" />
+    <End Role="Snapshot" Type="Self.Snapshot" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Survey">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Snapshot">
+        <PropertyRef Name="ID_survey" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Diagnosis_of_retinalEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Doctors" EntityType="Self.Doctor" />
+    <EntitySet Name="Patients" EntityType="Self.Patient" />
+    <EntitySet Name="Snapshots" EntityType="Self.Snapshot" />
+    <EntitySet Name="Surveys" EntityType="Self.Survey" />
+    <AssociationSet Name="FK_Обследование_Пользователь" Association="Self.FK_Обследование_Пользователь">
+      <End Role="Doctor" EntitySet="Doctors" />
+      <End Role="Survey" EntitySet="Surveys" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Обследование_Пациент" Association="Self.FK_Обследование_Пациент">
+      <End Role="Patient" EntitySet="Patients" />
+      <End Role="Survey" EntitySet="Surveys" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Снимки_Обследование" Association="Self.FK_Снимки_Обследование">
+      <End Role="Survey" EntitySet="Surveys" />
+      <End Role="Snapshot" EntitySet="Snapshots" />
+    </AssociationSet>
+    <EntitySet Name="Correlations" EntityType="Diagnosis_of_retinalModel.Correlation" />
+    <EntitySet Name="Critical_points" EntityType="Diagnosis_of_retinalModel.Critical_points" />
+    <EntitySet Name="Foldings" EntityType="Diagnosis_of_retinalModel.Folding" />
+    <EntitySet Name="sysdiagrams" EntityType="Diagnosis_of_retinalModel.sysdiagram" />
+    <AssociationSet Name="FK_Correlation_Survey" Association="Diagnosis_of_retinalModel.FK_Correlation_Survey">
+      <End Role="Survey" EntitySet="Surveys" />
+      <End Role="Correlation" EntitySet="Correlations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Critical_points_Survey" Association="Diagnosis_of_retinalModel.FK_Critical_points_Survey">
+      <End Role="Survey" EntitySet="Surveys" />
+      <End Role="Critical_points" EntitySet="Critical_points" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Folding_Survey" Association="Diagnosis_of_retinalModel.FK_Folding_Survey">
+      <End Role="Survey" EntitySet="Surveys" />
+      <End Role="Folding" EntitySet="Foldings" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Correlation">
+    <Key>
+      <PropertyRef Name="ID_survey" />
+      <PropertyRef Name="Num_first_snapshot" />
+      <PropertyRef Name="Num_second_snapshot" />
+    </Key>
+    <Property Name="ID_survey" Type="Int32" Nullable="false" />
+    <Property Name="Num_first_snapshot" Type="Int32" Nullable="false" />
+    <Property Name="Num_second_snapshot" Type="Int32" Nullable="false" />
+    <Property Name="Сoefficient" Type="Double" Nullable="false" />
+    <NavigationProperty Name="Survey" Relationship="Diagnosis_of_retinalModel.FK_Correlation_Survey" FromRole="Correlation" ToRole="Survey" />
+  </EntityType>
+  <EntityType Name="Critical_points">
+    <Key>
+      <PropertyRef Name="ID_survey" />
+      <PropertyRef Name="Num_first_snapshot" />
+      <PropertyRef Name="Num_second_snapshot" />
+    </Key>
+    <Property Name="ID_survey" Type="Int32" Nullable="false" />
+    <Property Name="Num_first_snapshot" Type="Int32" Nullable="false" />
+    <Property Name="Num_second_snapshot" Type="Int32" Nullable="false" />
+    <Property Name="Count" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Survey" Relationship="Diagnosis_of_retinalModel.FK_Critical_points_Survey" FromRole="Critical_points" ToRole="Survey" />
+  </EntityType>
+  <EntityType Name="Folding">
+    <Key>
+      <PropertyRef Name="ID_survey" />
+      <PropertyRef Name="Num_snapshot" />
+    </Key>
+    <Property Name="ID_survey" Type="Int32" Nullable="false" />
+    <Property Name="Num_snapshot" Type="Int32" Nullable="false" />
+    <Property Name="Coefficient" Type="Double" Nullable="false" />
+    <NavigationProperty Name="Survey" Relationship="Diagnosis_of_retinalModel.FK_Folding_Survey" FromRole="Folding" ToRole="Survey" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <Association Name="FK_Correlation_Survey">
+    <End Type="Diagnosis_of_retinalModel.Survey" Role="Survey" Multiplicity="1" />
+    <End Type="Diagnosis_of_retinalModel.Correlation" Role="Correlation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Survey">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Correlation">
+        <PropertyRef Name="ID_survey" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Critical_points_Survey">
+    <End Type="Diagnosis_of_retinalModel.Survey" Role="Survey" Multiplicity="1" />
+    <End Type="Diagnosis_of_retinalModel.Critical_points" Role="Critical_points" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Survey">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Critical_points">
+        <PropertyRef Name="ID_survey" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Folding_Survey">
+    <End Type="Diagnosis_of_retinalModel.Survey" Role="Survey" Multiplicity="1" />
+    <End Type="Diagnosis_of_retinalModel.Folding" Role="Folding" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Survey">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Folding">
+        <PropertyRef Name="ID_survey" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
